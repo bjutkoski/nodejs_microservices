@@ -6,6 +6,15 @@ class SpeakersService {
     this.serviceVersionIdentifier = serviceVersionIdentifier;
   }
 
+  async getImage(path) {
+    const { ip, port } = await this.getService('speakers-service');
+    return this.callService({
+      method: 'get',
+      responseType: 'stream',
+      url: `http://${ip}:${port}/images/${path}`,
+    });
+  }
+
   async getNames() {
     const { ip, port } = await this.getService('speakers-service');
     return this.callService({

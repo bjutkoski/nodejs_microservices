@@ -5,8 +5,19 @@ const router = express.Router();
 const speakersRoute = require('./speakers');
 const feedbackRoute = require('./feedback');
 
-module.exports = (param) => {
+module.exports = param => {
   const { speakers } = param;
+
+  router.get('/images/:type/:file', async (req, res, nex) => {
+    try {
+      const image = await speakers.getImage(
+        `${req.params.type}/${req.params.file}`
+      );
+      return image.pipe(res);
+    } catch (err) {
+      return next(err);
+    }
+  });
 
   router.get('/', async (req, res, next) => {
     try {

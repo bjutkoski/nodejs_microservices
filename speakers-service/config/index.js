@@ -17,6 +17,7 @@ module.exports = {
     version,
     serviceTimeout: 30,
     data: {
+      images: path.join(__dirname, '../data/images'),
       speakers: path.join(__dirname, '../data/speakers.json'),
     },
     log: () => getLogger(name, version, 'debug'),
@@ -26,6 +27,7 @@ module.exports = {
     version,
     serviceTimeout: 30,
     data: {
+      images: path.join(__dirname, '../data/images'),
       speakers: path.join(__dirname, '../data/speakers.json'),
     },
     log: () => getLogger(name, version, 'info'),

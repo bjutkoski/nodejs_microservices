@@ -16,6 +16,8 @@ module.exports = config => {
     });
   }
 
+  service.use('/images/', express.static(config.data.images));
+
   service.get('/list', async (req, res, next) => {
     try {
       return res.json(await speakers.getList());
